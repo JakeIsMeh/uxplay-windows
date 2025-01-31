@@ -77,7 +77,7 @@ jobs:
       - name: zip up output
         shell: msys2 {0}
         run: | 
-          zip ./uxplay-win.zip ./UxPlay/build/artifact/bin
+          zip -r ./uxplay-win.zip ./UxPlay/build/artifact/bin
       
       - name: uploading artifact
         uses: actions/upload-artifact@v4
