@@ -66,14 +66,8 @@ jobs:
         run: |
           git clone https://github.com/FDH2/UxPlay && cd UxPlay
           mkdir build && cd build
-          # cmake ..
-          # ninja
-          
           mkdir artifact && cd artifact
-          # mkdir lib
-          # cp -r /mingw64/lib/gstreamer-1.0 lib/gstreamer-1.0
-          # cp ../uxplay.exe bin
-          # echo ".\bin\uxplay.exe" > uxplay-windows.bat
+          
 
     #  - name: compile the installer with inno setup
     #    run: .$(Join-Path -Path ${env:PROGRAMFILES(X86)} -ChildPath 'Inno Setup 6\\ISCC.exe') $(Join-Path -Path $(Get-Location) -ChildPath "script.iss")
