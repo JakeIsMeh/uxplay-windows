@@ -72,8 +72,9 @@ jobs:
 
           mkdir artifact && cd artifact
           mkdir lib
-          cp -r /mingw64/lib/gstreamer-1.0 lib/gstreamer-1.0
+          cp -r /ucrt64/lib/gstreamer-1.0 lib/gstreamer-1.0
           mkdir bin
+          cp -r /ucrt64/bin/libgst*.exe bin
           cp ../uxplay.exe bin
 
       - name: zip up output
