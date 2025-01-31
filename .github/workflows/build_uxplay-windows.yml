@@ -76,6 +76,7 @@ jobs:
       - name: zip up output
         run: | 
           Write-Output (Get-Item .).FullName
+          Get-ChildItem -Recurse
       
       - name: uploading artifact
         uses: actions/upload-artifact@v4
