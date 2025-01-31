@@ -48,7 +48,6 @@ jobs:
         uses: msys2/setup-msys2@v2
         with:
           msystem: UCRT64
-          release: false
           update: true
           install: >-
             git
@@ -68,7 +67,7 @@ jobs:
         run: |
           git clone https://github.com/FDH2/UxPlay && cd UxPlay
           mkdir build && cd build
-          cmake -DBUILD_SHARED_LIBS=OFF ..
+          cmake -DBUILD_SHARED_LIBS=OFF -DCMAKE_EXE_LINKER_FLAGS="-static" -DCMAKE_FIND_LIBRARY_SUFFIXES=".a" ..
           ninja
 
           mkdir artifact && cd artifact
