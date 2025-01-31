@@ -67,20 +67,18 @@ jobs:
         run: |
           git clone https://github.com/FDH2/UxPlay && cd UxPlay
           mkdir build && cd build
-          cmake ..
+          cmake -DBUILD_SHARED_LIBS=OFF ..
           ninja
 
           mkdir artifact && cd artifact
-          mkdir lib
-          cp -r /ucrt64/lib/gstreamer-1.0 lib/gstreamer-1.0
           mkdir bin
-          find /ucrt64/bin -type f -name "libgst*.exe" | xargs -0 -I '{}' cp '/ucrt64/bin/{}' 'bin'
           cp ../uxplay.exe bin
 
       - name: zip up output
         shell: msys2 {0}
         run: | 
-          zip -r ./uxplay-win.zip ./UxPlay/build/artifact
+          cd ./UxPlay/build/artifact/bin
+          zip -r ./uxplay-win.zip .
       
       - name: uploading artifact
         uses: actions/upload-artifact@v4
