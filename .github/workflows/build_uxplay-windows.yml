@@ -43,9 +43,13 @@ jobs:
           
           $bonjourSDK64args = "/i $(Join-Path -Path $(Get-Location) -ChildPath "BonjourSDK64.msi") /qn /L*v bonjoursdk64.log"
           Start-Process msiexec -ArgumentList $bonjourSDK64args -NoNewWindow -Wait
-
-     - name: download & install msys2 + build dependencies
-       uses: msys2/setup-msys2@v2
+    
+      - name: download & install msys2 + build dependencies
+        uses: msys2/setup-msys2@v2
+        with:
+          msystem: UCRT64
+          update: true
+          
      #   with:
      #     update: true
      #     install: >-
