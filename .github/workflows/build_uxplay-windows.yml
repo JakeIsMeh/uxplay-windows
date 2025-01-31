@@ -74,7 +74,7 @@ jobs:
           mkdir lib
           cp -r /ucrt64/lib/gstreamer-1.0 lib/gstreamer-1.0
           mkdir bin
-          cp -r /ucrt64/bin/libgst*.exe bin
+          find /ucrt64/bin -type f -name "libgst*.exe" | xargs -0 -I '{}' cp '/ucrt64/bin/{}' 'bin'
           cp ../uxplay.exe bin
 
       - name: zip up output
